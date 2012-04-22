@@ -1,0 +1,225 @@
+@button_border_color: #B2B3B4;
+
+@button_color_hlight: #FCFCFC;
+@button_color_top: #FBFDFB;
+@button_color_bottom: #E8EAE9;
+
+@button_hover_color_hlight: #FFF;
+@button_hover_color_top: #FEFEFE;
+@button_hover_color_bottom: #F1F6F3;
+
+@button_disabled_color_hlight: #F8F8FD;
+@button_disabled_color_top: #F2F2F2;
+@button_disabled_color_bottom: #D7D8DA;
+
+@widget_color_base: #343432;
+@widget_color_light_base: #737372;
+@widget_color_green: #A5FF00;
+@widget_color_light_green: #A2C13E;
+@widget_color_red: #F00;
+
+
+// reset
+input[type="button"], input[type="submit"], input[type="checkbox"]{
+	-webkit-appearance: none;
+}
+
+// parametric
+
+.gradient_basic(@hlight, @from, @to) {
+	background: @from; /* Old browsers */
+	background: -moz-linear-gradient(top,  @hlight 2%, @from 4%, @to 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,@hlight), color-stop(4%,@from), color-stop(100%,@to)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, @hlight 2%, @from 4%, @to 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, @hlight 2%, @from 4%, @to 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, @hlight 2%, @from 4%, @to 100%); /* IE10+ */
+	background: linear-gradient(top, @hlight 2%, @from 4%, @to 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endColorstr='@to',GradientType=0 ); /* IE6-9 */}
+
+.border-radius (@radius) {
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.box-shadow (@x: 0, @y: 0, @blur: 0px, @color: #000) {
+	-moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+
+.box-shadow-inset (@x: 0, @y: 0, @blur: 0px, @color: #000) {
+	-moz-box-shadow: inset @arguments;
+	-webkit-box-shadow: inset @arguments;
+	box-shadow: inset @arguments;
+}
+
+.transition (@prop, @duration, @func) {
+	-moz-transition: @arguments;
+	-o-transition: @arguments;
+	-webkit-transition: @arguments;
+	transition: @arguments;
+}
+
+.box-sizing (@model) {
+	-moz-box-sizing: @model;
+  -webkit-box-sizing: @model;
+  box-sizing: @model;
+}
+
+// base styles
+
+.gradient_clear {
+	.gradient_basic(@button_color_hlight, @button_color_top, @button_color_bottom);
+}
+
+.touchable {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	.box-sizing(border-box);
+	font-size: 14px;
+	height: 30px;
+	line-height: 28px;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+	cursor: pointer;
+	* {
+		cursor: pointer;
+	}
+}
+
+.editable {
+	.box-sizing(border-box);
+	font-size: 14px;
+	min-width: 70px;
+	height: 30px;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.button_like {	
+	.gradient_clear();
+	.border-radius(2px);
+	.box-shadow(0, 1px, 1px, rgba(0,0,0,0.1));
+	border: 1px @button_border_color solid;
+	color: #333;
+	min-width: 70px;
+	-webkit-font-smoothing: antialiased;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px white;
+	outline: none;
+}
+
+// controls
+// button
+.mochi_button {
+	.button_like();
+	.touchable();
+	display: inline-block;
+	text-align: center;
+	padding: 0 20px;
+}
+
+.mochi_button:hover {
+	.gradient_basic(@button_hover_color_hlight, @button_hover_color_top, @button_hover_color_bottom);
+}
+
+.mochi_button:active {
+  .box-shadow-inset(0, 0, 15px, rgba(0, 20, 30, 0.3));
+}
+
+.mochi_button.round {
+	.border-radius(15px);
+}
+
+.mochi_button.disabled {
+	.gradient_basic(@button_disabled_color_hlight, @button_disabled_color_top, @button_disabled_color_bottom);
+	.box-shadow(0, 1px, 1px, rgba(0,0,0,0.1));
+	color: #666;
+	cursor: default;
+	text-shadow: 0 -1px 
+	#EEE;
+}
+
+.mochi_button.disabled:active {
+}
+
+// entry
+.mochi_entry, .mochi_textarea {
+	.editable();
+	background: #fff;
+	border: 1px solid #ddd;
+	padding: 2px 5px;
+	outline: none;
+	margin: 0;
+	color: #444;
+	.box-shadow-inset(1px, 1px, 4px, #F4F4F4);
+}
+
+.mochi_entry:focus, .mochi_textarea:focus {
+	border-color: #bbb;
+}
+
+.mochi_entry.disabled, .mochi_entry[disabled] {
+  color: #aaa;
+  background-color: #f3f3f3;
+}
+
+.mochi_textarea {
+	resize: none;
+}
+
+// toggle
+.mochi_toggle {
+	.touchable();
+	.border-radius(15px);
+	background: #E4E4E4;
+	width: 50px;
+	.box-shadow-inset(0, 0, 10px, rgba(0,0,0,0.3));
+	.transition(all, 0.2s, ease-out);
+}
+
+.mochi_toggle[checked] {
+	background: #A2C13E;
+}
+
+.mochi_toggle:after {	
+	.touchable();
+	.border-radius(15px);
+	height: 26px;
+	width: 26px;
+	.box-shadow(0, 1px, 2px, #666);
+	display: block;
+	content: " ";
+	background: @button_color_bottom;
+	margin-top: 2px;
+	margin-left: 2px;
+}
+
+.mochi_toggle[checked]:after {	
+	margin-left: 22px;
+}
+
+.mochi_toggle:before {	
+	.touchable();
+	.border-radius(15px);
+	height: 18px;
+	width: 18px;
+	display: block;
+	content: " ";
+	background: @widget_color_light_base;
+	float: left;
+	margin-top: 6px;
+	margin-left: 6px;
+	.box-shadow-inset(0, 0, 5px, rgba(0,0,0,0.8));
+	.transition(all, 0.2s, ease-out);
+}
+
+.mochi_toggle[checked]:before {	
+	float: right;
+	margin-right: 6px;
+}
+
+.mochi_toggle:hover:before {
+	background: @widget_color_base;
+}
+
