@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>hotot.widget test page</title>
+		<title>Mochi Widget Set</title>
 		<link rel="stylesheet" href="css/mochi.css" type="text/css" media="screen" /> 
 		<style>
 			html, body, div, span, applet, object, iframe,
@@ -61,20 +61,21 @@
 				<h3>widget.Button (default)</h3>
 				<div class="pane" style="background-color: #f2f2f2">
 					<p>
-					<a class="mochi_button">
-						A Button
-					</a>
+					<a class="mochi_button">A Button</a>
 					<a class="mochi_button" disabled>Disabled Button</a>
 					<input type="button" class="mochi_button" value="input based"/>
 					<input type="button" class="mochi_button" value="input based" disabled/>
 					</p>
 					<p>
-					<a class="mochi_button round">
-						A Button
-					</a>
+					<a class="mochi_button round">A Button</a>
 					<a class="mochi_button round" disabled>Disabled Button</a>
 					<input type="button" class="mochi_button round" value="input based"/>
 					<input type="button" class="mochi_button round" value="input based" disabled/>
+					</p>
+					<p>
+						<a class="mochi_button mochi_button_active">Active</a>
+						<a class="mochi_button mochi_button_hover">Hover</a>
+						<a class="mochi_button mochi_button_select">Select</a>
 					</p>
 				</div>
 				<h3>widget.Entry (default)</h3>
@@ -139,14 +140,22 @@
 
 				<h3>widget.CheckBox</h3>
 				<div class="pane" style="background-color: #f2f2f2">
-					<input type="checkbox" class="checkbox" checked/><label class="label">check</label>
-					<input type="checkbox" class="checkbox"/><label class="label">check</label>
+					<label for="">On</label>
+					<input type="checkbox" class="mochi_checkbox" checked/>
+					<label for="">Off</label>
+					<input type="checkbox" class="mochi_checkbox"/>
+					<label for="">Disabled</label>
+					<input type="checkbox" class="mochi_checkbox" disabled="true"/>
 				</div>
 
 				<h3>widget.Radio</h3>
 				<div class="pane" style="background-color: #f2f2f2">
-					<input type="radio" class="radio" name="radio1" checked/><label class="label">check</label>
-					<input type="radio" class="radio" name="radio1"/><label class="label">check</label>
+					<label for="">On</label>
+					<input type="radio" class="mochi_radio" name="radio1" checked/>
+					<label for="">Off</label>
+					<input type="radio" class="mochi_radio" name="radio1"/>
+					<label for="">Disabled</label>
+					<input type="radio" class="mochi_radio" name="radio1" disabled/>
 				</div>
 			</div>
 		</div>

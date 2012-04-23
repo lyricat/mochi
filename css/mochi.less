@@ -24,7 +24,7 @@
 
 
 // reset
-input[type="button"], input[type="submit"], input[type="checkbox"]{
+input[type="button"], input[type="submit"], input[type="mochi_checkbox"]{
 	-webkit-appearance: none;
 }
 
@@ -189,6 +189,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 
 // toggle
 .mochi_toggle {
+	-webkit-appearance: none;
 	.touchable();
 	.border-radius(15px);
 	background: #E4E4E4;
@@ -202,7 +203,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 	background: @widget_color_green;
 }
 
-.mochi_toggle:after {	
+.mochi_toggle:after, .mochi_toggle_button {	
 	.touchable();
 	.border-radius(12px);
 	height: 24px;
@@ -215,15 +216,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 	margin-left: 2px;
 }
 
-.mochi_toggle[checked]:after {	
+.mochi_toggle[checked]:after, .mochi_toggle_button_checked {	
 	margin-left: 22px;
 }
 
-.mochi_toggle:hover:after {	
+.mochi_toggle:hover:after, .mochi_toggle_button_hover {	
 	.radial-gradient(8px 8px, 12px 12px, @button_hover_color_hlight, @button_hover_color_top, @button_color_bottom);
 }
 
-.mochi_toggle:before {	
+.mochi_toggle:before, .mochi_toggle_button_inner {	
 	.touchable();
 	.border-radius(8px);
 	height: 16px;
@@ -238,13 +239,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 	.transition(all, 0.2s, ease-out);
 }
 
-.mochi_toggle[checked]:before {	
+.mochi_toggle[checked]:before, .mochi_toggle_button_inner_checked {	
 	float: right;
 	margin-right: 6px;
 	background: @widget_color_light_green;
 }
 
-.mochi_toggle[disabled]:before {	
+.mochi_toggle[disabled]:before, .mochi_toggle_button_disabled {	
 	background: @widget_color_light_base;
 }
 
@@ -328,3 +329,47 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 	.box-sizing(content-sizing);
 	content: "V";
 }
+
+// mochi_checkbox and mochi_radio
+.mochi_checkbox, .mochi_radio {
+	-webkit-appearance: none;
+	.mochi_toggle_button;
+	padding: 4px;
+	margin: 0;
+	display: inline-block;
+}
+.mochi_checkbox {
+	.border-radius(2px);
+}
+.mochi_checkbox:checked, .mochi_radio:checked {
+	.mochi_toggle_button_checked;
+	margin: 0;
+}
+.mochi_checkbox:hover, .mochi_radio:hover {
+	.mochi_toggle_button_hover;
+}
+.mochi_checkbox[disabled]:hover, .mochi_radio[disabled]:hover {
+	.mochi_toggle_button;
+}
+.mochi_checkbox:after, .mochi_radio:after {
+	.mochi_toggle_button_inner;
+	margin: 0;
+	background: @widget_color_base;
+	float: none;
+}
+.mochi_checkbox:after {
+	.border-radius(2px);
+}
+.mochi_checkbox:checked:after, .mochi_radio:checked:after {
+	.mochi_toggle_button_inner_checked;
+	margin: 0;
+	float: none;
+}
+.mochi_checkbox[disabled]:after, .mochi_radio[disabled]:after,
+{
+	.mochi_toggle_button_disabled;
+}
+.checked:focus, .mochi_radio:focus {
+	border-color: #4D90FE;
+}
+
