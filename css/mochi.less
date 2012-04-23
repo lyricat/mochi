@@ -334,16 +334,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 .mochi_checkbox, .mochi_radio {
 	-webkit-appearance: none;
 	.mochi_toggle_button;
-	padding: 4px;
 	margin: 0;
 	display: inline-block;
 }
 .mochi_checkbox {
 	.border-radius(2px);
-}
-.mochi_checkbox:checked, .mochi_radio:checked {
-	.mochi_toggle_button_checked;
-	margin: 0;
 }
 .mochi_checkbox:hover, .mochi_radio:hover {
 	.mochi_toggle_button_hover;
@@ -353,17 +348,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 }
 .mochi_checkbox:after, .mochi_radio:after {
 	.mochi_toggle_button_inner;
-	margin: 0;
-	background: @widget_color_base;
-	float: none;
+	background: @widget_color_light_base;
+	margin: 4px;
+	float: left;
 }
 .mochi_checkbox:after {
 	.border-radius(2px);
 }
 .mochi_checkbox:checked:after, .mochi_radio:checked:after {
 	.mochi_toggle_button_inner_checked;
-	margin: 0;
-	float: none;
+	margin: 4px;
+	float: left;
 }
 .mochi_checkbox[disabled]:after, .mochi_radio[disabled]:after,
 {
