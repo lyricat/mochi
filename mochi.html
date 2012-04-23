@@ -1,199 +1,155 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>hotot.widget test page</title>
-    <link rel="stylesheet" href="css/mochi.css" type="text/css" media="screen" /> 
-    <style>
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-    background: transparent;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-    -webkit-font-smoothing: antialiased;
-}
-body {
-    line-height: 1;
-    background: #ccc;
-    font-family: Droid Sans Fallback, WenQuanYi Micro Hei, Sans, Microsoft Yahei, Simhei, Simsun;
-}
-h1, h2, h3, h4, h5, h6 {
-    margin: 0.5em 0;
-    font-weight: normal;
-}
-#content {
-    background: #fff;
-    padding: 20px;
-    width: 960px;
-    margin: 0 auto;
-    font-family: sans-serif;
-}
-#content p {
-	margin: 10px 0;
-}
-.pane {
-    padding: 20px;
-}
-    </style>    
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>hotot.widget test page</title>
+		<link rel="stylesheet" href="css/mochi.css" type="text/css" media="screen" /> 
+		<style>
+			html, body, div, span, applet, object, iframe,
+			h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+			a, abbr, acronym, address, big, cite, code,
+			del, dfn, em, font, img, ins, kbd, q, s, samp,
+			small, strike, strong, sub, sup, tt, var,
+			b, u, i, center,
+			dl, dt, dd, ol, ul, li,
+			fieldset, form, label, legend,
+			table, caption, tbody, tfoot, thead, tr, th, td {
+				background: transparent;
+				border: 0;
+				margin: 0;
+				padding: 0;
+				vertical-align: baseline;
+				-webkit-font-smoothing: antialiased;
+			}
+			body {
+				line-height: 1;
+				background: #ccc;
+				font-family: Droid Sans Fallback, WenQuanYi Micro Hei, Sans, Microsoft Yahei, Simhei, Simsun;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0.5em 0;
+				font-weight: normal;
+			}
+			#content {
+				background: #fff;
+				padding: 20px;
+				width: 960px;
+				margin: 0 auto;
+				font-family: sans-serif;
+			}
+			#content p {
+				margin: 10px 0;
+			}
+			.pane {
+				padding: 20px;
+			}
+			.pane > * {
+				vertical-align: middle;
+			}
+			label {
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+			}
+		</style>    
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/mochi.js"></script>
-</head>
-<body>
-<div id="container">
-    <div id="content">
-        <h3>widget.Button (default)</h3>
-        <div class="pane" style="background-color: #f2f2f2">
+	</head>
+	<body>
+		<div id="container">
+			<div id="content">
+				<h3>widget.Button (default)</h3>
+				<div class="pane" style="background-color: #f2f2f2">
 					<p>
-						<a class="mochi_button">
-							A Button
-						</a>
-            <a class="mochi_button disabled">Disabled Button</a>
-            <input type="button" class="mochi_button" value="input based"/>
-					</p>
-        </div>
-        <h3>widget.Entry (default)</h3>
-        <div class="pane" style="background-color: #f2f2f2">
-					<p>
-            <input type="text" class="mochi_entry" value="A Entry"/>
-            <input type="text" class="mochi_entry disabled" disabled="true" value="A Disabled Entry"/>
+					<a class="mochi_button">
+						A Button
+					</a>
+					<a class="mochi_button" disabled>Disabled Button</a>
+					<input type="button" class="mochi_button" value="input based"/>
+					<input type="button" class="mochi_button" value="input based" disabled/>
 					</p>
 					<p>
-            <textarea class="mochi_textarea"></textarea>
+					<a class="mochi_button round">
+						A Button
+					</a>
+					<a class="mochi_button round" disabled>Disabled Button</a>
+					<input type="button" class="mochi_button round" value="input based"/>
+					<input type="button" class="mochi_button round" value="input based" disabled/>
 					</p>
-        </div>
-        <h3>widget.Toggle (dark)</h3>
-        <div class="pane" style="background-color: #f2f2f2">
+				</div>
+				<h3>widget.Entry (default)</h3>
+				<div class="pane" style="background-color: #f2f2f2">
+					<p>
+					<input type="text" class="mochi_entry" value="A Entry"/>
+					<input type="text" class="mochi_entry" disabled value="A Disabled Entry"/>
+					</p>
+					<p>
+					<textarea class="mochi_textarea" style="width:100%;height:100px;"></textarea>
+					</p>
+				</div>
+				<h3>widget.Toggle</h3>
+				<div class="pane" style="background-color: #f2f2f2">
+					<label for="">On</label>
 					<input type="checkbox" class="mochi_toggle" checked/>
+					<label for="">Off</label>
 					<input type="checkbox" class="mochi_toggle"/>
-        </div>
-        <h3>widget.RadioGroup (default)</h3>
-        <div class="pane" style="background-color: #f2f2f2">
-        <ul id="group1" class="radio_group">
-            <li><a class="radio_group_btn first selected"
-                    href="#">Button 1</a>
-            </li><li>
-                <a class="radio_group_btn" 
-                    href="javascript:void(0)">Button 2</a>
-            </li><li>
-                <a class="radio_group_btn" href="#">Button 3</a>
-            </li><li>
-                <a class="radio_group_btn last" href="#">Button 4</a>
-            </li>
-        </ul>
-        </div>
-        <h3>widget.RadioGroup (dark)</h3>
-        <div class="pane" style="background-color: #777">
-        <ul id="group2" class="radio_group dark">
-            <li><a class="radio_group_btn first selected"
-                   href="#">Button 1</a>
-            </li><li>
-                <a class="radio_group_btn" 
-                    href="javascript:void(0)">Button 2</a>
-            </li><li>
-                <a class="radio_group_btn" href="#">Button 3</a>
-            </li><li>
-                <a class="radio_group_btn last" href="#">Button 4</a>
-            </li>
-        </ul>
-        </div>
-        <h3>widget.Dialog (default)</h3>
-        <div class="pane" style="background-color: #f2f2f2">
-            <a class="button" id="open_dlg1_btn">Open Empty dialog</a>
-            <a class="button" id="open_dlg21_btn">Open Message dialog</a>
-            <a class="button" id="open_dlg22_btn">Open Prebuilt dialog</a>
-            <a class="button" id="open_dlg3_btn">Open Styled dialog</a>
-            <a class="button" id="open_dlg4_btn">Open A Dynamic dialog</a>
-        </div>
-        <h3>widget.Combo</h3>
-        <table style="width: 100%">
-        <tr><td>
-        <div class="pane" style="background-color: #f2f2f2">
-            <select class="combo">
-                <option class="menu_item">Item A</option>
-                <option class="menu_item">Item B</option>
-                <option class="menu_item">Item C</option>
-                <option class="menu_item">Item D</option>
-            </select>
-        </div>
-        </td><td>
-        <div class="pane" style="background-color: #777">
-            <select class="combo dark">
-                <option class="menu_item">Item A</option>
-                <option class="menu_item">Item B</option>
-                <option class="menu_item">Item C</option>
-                <option class="menu_item">Item D</option>
-            </select>
-        </div>
-        </td></tr>
-        </table>
+					<label for="">Disabled</label>
+					<input type="checkbox" class="mochi_toggle" disabled="true"/>
+				</div>
+				<h3>widget.ButtonGroup (default)</h3>
+				<div class="pane" style="background-color: #f2f2f2">
+					<p>
+					<ul id="group1" class="mochi_button_group">
+						<li><a class="mochi_button_group_item selected"
+							href="javascript:void(0)" name="group1">Button 1</a>
+						</li><li>
+						<a class="mochi_button_group_item" 
+							href="javascript:void(0)" name="group1">Button 2</a>
+						</li><li>
+						<a class="mochi_button_group_item" 
+							href="javascript:void(0)" name="group1">Button 3</a>
+						</li><li>
+						<a class="mochi_button_group_item" 
+							href="javascript:void(0)" name="group1">Button 4</a>
+						</li>
+					</ul>
+					</p>
+					<p>	<ul id="group2" class="mochi_button_group round">
+						<li><a class="mochi_button_group_item selected"
+							href="javascript:void(0)" name="group2">Left</a>
+						</li><li>
+						<a class="mochi_button_group_item" 
+							href="javascript:void(0)" name="group2">Middle</a>
+						</li><li>
+						<a class="mochi_button_group_item" 
+							href="javascript:void(0)" name="group2">Right</a>
+						</li>
+					</ul>
+					</p>
+				</div>
+				<h3>widget.Combo</h3>
+				<div class="pane" style="background-color: #f2f2f2">
+					<select class="mochi_combo">
+						<option class="menu_item">Item A</option>
+						<option class="menu_item">Item B</option>
+						<option class="menu_item">Item C</option>
+						<option class="menu_item">Item D</option>
+					</select>
+				</div>
 
-        <h3>widget.CheckBox</h3>
-        <table style="width: 100%">
-        <tr><td>
-        <div class="pane" style="background-color: #f2f2f2">
-            <input type="checkbox" class="checkbox" checked/><label class="label">check</label>
-            <input type="checkbox" class="checkbox"/><label class="label">check</label>
-        </div>
-        </td><td>
-        <div class="pane" style="background-color: #777">
-            <input type="checkbox" class="checkbox dark" checked/><label class="label dark">check</label>
-            <input type="checkbox" class="checkbox dark"/><label class="label dark">check</label>
-        </div>
-        </td></tr>
-        </table>
+				<h3>widget.CheckBox</h3>
+				<div class="pane" style="background-color: #f2f2f2">
+					<input type="checkbox" class="checkbox" checked/><label class="label">check</label>
+					<input type="checkbox" class="checkbox"/><label class="label">check</label>
+				</div>
 
-        <h3>widget.Radio</h3>
-        <table style="width: 100%">
-        <tr><td>
-        <div class="pane" style="background-color: #f2f2f2">
-            <input type="radio" class="radio" name="radio1" checked/><label class="label">check</label>
-            <input type="radio" class="radio" name="radio1"/><label class="label">check</label>
-        </div>
-        </td><td>
-        <div class="pane" style="background-color: #777">
-            <input type="radio" class="radio dark" name="radio2" checked/><label class="label dark">check</label>
-            <input type="radio" class="radio dark" name="radio2" /><label class="label dark">check</label>
-        </div>
-        </td></tr>
-        </table>
-
-        <h3>widget.Bubble</h3>
-        <div class="pane" style="background-color: #f2f2f2">
-        <a id="bubble_target1" href="#">Hover Me!</a>
-        </div>
-        
-        <h3>widget.Progress</h3>
-        <div class="pane" style="background-color: #f2f2f2">
-        <div id="progress1" class="progress_bar" value="0.9" href="#">
-            <div class="progress_bar_container">
-                <div class="progress_bar_label">90/100</div>
-                <div class="progress_bar_indicator"></div>
-            </div>
-        </div>
-        </div>
-
-        <h3 id="widget-listview">widget.ListView (default)</h3>
-        <div class="pane" style="background-color: #f2f2f2">
-        <div id="listview1" class="listview">
-            <ul class="listview_container">
-                <li class="listview_item">
-                    AABBCC
-                </li>
-            </ul>
-        </div>
-        </div>
-   </div>
-</div>
-
-</body>
+				<h3>widget.Radio</h3>
+				<div class="pane" style="background-color: #f2f2f2">
+					<input type="radio" class="radio" name="radio1" checked/><label class="label">check</label>
+					<input type="radio" class="radio" name="radio1"/><label class="label">check</label>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
 

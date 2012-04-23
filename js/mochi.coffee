@@ -1,6 +1,11 @@
 $(document).ready(->
   $('.mochi_toggle').click(->
-    $(@).prop('checked', $(@).prop('checked'))
-    $(@).attr('checked', $(@).prop('checked'))
+    $(@).attr('checked', @.checked)
+    return
+  )
+  $('.mochi_button_group_item').click(->
+    name = $(@).attr('name')
+    $(".mochi_button_group_item[name=#{name}]").not(@).removeClass('selected')
+    $(@).addClass('selected')
   )
 )
