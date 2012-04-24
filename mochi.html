@@ -138,7 +138,7 @@
 					</select>
 				</div>
 
-				<h3>widget.CheckBox</h3>
+				<h3>widget.CheckBox and widget.Radio</h3>
 				<div class="pane" style="background-color: #f2f2f2">
 					<label for="">On</label>
 					<input type="checkbox" class="mochi_checkbox" checked/>
@@ -146,16 +146,59 @@
 					<input type="checkbox" class="mochi_checkbox"/>
 					<label for="">Disabled</label>
 					<input type="checkbox" class="mochi_checkbox" disabled="true"/>
-				</div>
-
-				<h3>widget.Radio</h3>
-				<div class="pane" style="background-color: #f2f2f2">
+					
 					<label for="">On</label>
 					<input type="radio" class="mochi_radio" name="radio1" checked/>
 					<label for="">Off</label>
 					<input type="radio" class="mochi_radio" name="radio1"/>
 					<label for="">Disabled</label>
 					<input type="radio" class="mochi_radio" name="radio1" disabled/>
+				</div>
+
+				<h3>widget.List</h3>
+				<div class="pane" style="background-color: #f2f2f2">
+					<p>
+					<ul class="mochi_list">
+						<li class="mochi_list_item">
+							<input type="checkbox" class="mochi_checkbox widget"/>
+							<label for="" class="label">Item 1</label>
+						</li>
+						<li class="mochi_list_item">
+							<input type="checkbox" class="mochi_radio widget"/>
+							<label for="" class="label">Item 2</label>
+						</li>
+						<li class="mochi_list_item">
+							<input type="checkbox" class="mochi_toggle widget"/>
+							<label for="" class="label">Item 3</label>
+						</li>
+					</ul>
+					</p>
+					<p>
+					<ul class="mochi_list">
+						<li class="mochi_list_item with_trigger">
+						<a class="trigger">
+							<span class="more widget" href="#"></span>
+							<label class="value">Shellex</label>
+							<label for="" class="label">Profile</label>
+						</a>
+						</li>
+						<li class="mochi_list_item">
+							<input type="checkbox" class="mochi_toggle widget"/>
+							<label class="value">20h:13m:04s</label>
+							<label for="" class="label">Auto Connect</label>
+						</li>
+					</ul>
+					<ul class="mochi_list">
+						<li class="mochi_list_item">
+							<input type="text" class="mochi_entry widget"/>
+							<label for="" class="label">Username</label>
+						</li>
+						<li class="mochi_list_item">
+							<input type="password" class="mochi_entry widget"/>
+							<label for="" class="label">Password</label>
+						</li>
+					</ul>
+					</p>
 				</div>
 			</div>
 		</div>

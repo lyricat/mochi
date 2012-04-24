@@ -90,7 +90,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 	-khtml-user-select: none;
 	user-select: none;
 	.box-sizing(border-box);
-	font-size: 14px;
 	height: 30px;
 	line-height: 28px;
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
@@ -253,6 +252,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 .mochi_button_group {
 	margin: 0;
 	vertical-align: middle;
+	padding: 0;
 }
 
 .mochi_button_group > li {
@@ -364,7 +364,96 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 {
 	.mochi_toggle_button_disabled;
 }
-.checked:focus, .mochi_radio:focus {
-	border-color: #4D90FE;
+
+// mochi list
+@list_item_border_color: #ccc;
+@list_item_border_hlight_color: #fff;
+@list_item_bg_color: #FCFCFC;
+
+.mochi_list {
+	margin: 3px 0;
+	padding: 0;
+	list-style: none;
+	.border-radius(5px);
+	border: 1px solid @list_item_border_color;
+	border-bottom: 1px solid @list_item_border_hlight_color;
 }
+
+.mochi_list_item {
+	background: @list_item_bg_color;
+	height: 30px;
+	border-top: 1px solid @list_item_border_hlight_color;
+	border-bottom: 1px solid @list_item_border_color;
+	padding: 4px 10px;
+	.label {
+		height: 30px;
+		line-height: 30px;
+		font-weight: bold;
+	}
+
+	.widget, .value {
+		float: right;
+	}
+
+	.value {
+		color: #353864;
+		margin-right: 10px;
+	}
+	.trigger{
+		.touchable;
+		padding: 4px 10px;
+		width: 100%;
+		height: 38px;
+		display: block;
+	}
+	.trigger:hover {
+		.gradient_basic(#0082E5, #0082E5, #193AD1);
+		.value, .label {
+			color: white;
+		}
+		.more:after, .more:before {
+			background: white;
+		}
+	}
+	.more {
+		height: 14px;
+		width: 14px;
+		display: inline-block;
+		margin-top: 10px;
+	}
+	.more:after, .more:before {
+		content: " ";
+		display: block;
+		background: @widget_color_base;
+		height: 4px;
+		width: 12px;
+		-webkit-transform: rotate(45deg);
+	}
+	.more:after {
+		margin-top: 2px;
+		-webkit-transform: rotate(-45deg);
+	}
+}
+.mochi_list_item.with_trigger {
+	padding: 0;
+	height: 38px;
+}
+
+.mochi_list_item:first-child {
+	-webkit-top-left-border-radius: 5px;
+	-webkit-top-right-border-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-top: none;
+}
+
+.mochi_list_item:last-child {
+	-webkit-bottom-left-border-radius: 5px;
+	-webkit-bottom-right-border-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+
+
 
