@@ -22,6 +22,40 @@
 @widget_color_light_green:#A5FF00;
 @widget_color_red: #F00;
 
+// theme
+// - black
+@button_border_color_black: #3F3E3D;
+
+@button_color_hlight_black: #838383;
+@button_color_top_black: #737373;
+@button_color_bottom_black: #484649;
+
+@button_hover_color_hlight_black: #939393;
+@button_hover_color_top_black: #838383;
+@button_hover_color_bottom_black: #585659;
+
+// - blue 
+@button_border_color_blue: #0666B6;
+
+@button_color_hlight_blue: #93b2D3;
+@button_color_top_blue: #3099E7;
+@button_color_bottom_blue: #2457DA;
+
+@button_hover_color_hlight_blue: #B0C9E1;
+@button_hover_color_top_blue: #50A9F7;
+@button_hover_color_bottom_blue: #226FDD;
+
+// - red 
+@button_border_color_red: #C60C06;
+
+@button_color_hlight_red: #D39394;
+@button_color_top_red: #E73034;
+@button_color_bottom_red: #CA1416;
+
+@button_hover_color_hlight_red: #E1A0A2;
+@button_hover_color_top_red: #F7505C;
+@button_hover_color_bottom_red: #DD222D;
+
 
 // reset
 input[type="button"], input[type="submit"], input[type="checkbox"],  input[type="radio"]{
@@ -98,6 +132,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 	* {
 		cursor: pointer;
 	}
+	font-size: 14px;
 	.transition(all, 0.2s, ease-out);
 }
 
@@ -113,12 +148,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 .button_like {	
 	.gradient_clear();
 	.border-radius(2px);
-	.box-shadow(0, 1px, 1px, rgba(0,0,0,0.1));
+	.box-shadow(0, 1px, 1px, rgba(0,0,0,0.2));
 	border: 1px @button_border_color solid;
 	color: #333;
 	-webkit-font-smoothing: antialiased;
 	text-decoration: none;
 	text-shadow: 0 -1px 1px white;
+}
+
+.has_icon::after, .only_icon::after {
+	content: " ";
+	position: relative;
+	top: 6px;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin: 0 0.5em 0 -0.5em;
+	display: block;
+	background: transparent url(../image/ic16_sample.png) 0 0 no-repeat;
+}
+
+.only_icon {
+	padding: 0px !important;
+	min-width: 30px !important;
+	text-indent: -99999px;
+	overflow: hidden;
+}
+
+.only_icon::after {
+	margin: 0 6px;
 }
 
 // controls
@@ -131,35 +189,74 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 	padding: 0 20px;
 	min-width: 70px;
 }
-
 .mochi_button:hover, .mochi_button_hover {
 	.gradient_basic(@button_hover_color_hlight, @button_hover_color_top, @button_hover_color_bottom);
 }
-
 .mochi_button:active, .mochi_button_active {
   .box-shadow-inset(0, 0, 15px, rgba(0, 20, 30, 0.3));
 }
-
 .mochi_button_select {
   .box-shadow-inset(0, 0, 8px, rgba(0, 20, 30, 0.2));
 	.gradient_basic(@button_select_color_hlight, @button_select_color_top, @button_select_color_bottom);
 }
-
 .mochi_button.round {
 	.border-radius(15px);
 }
-
 .mochi_button[disabled] {
 	.gradient_basic(@button_disabled_color_hlight, @button_disabled_color_top, @button_disabled_color_bottom);
 	.box-shadow(0, 1px, 1px, rgba(0,0,0,0.1));
 	color: #666;
 	cursor: default;
-	text-shadow: 0 -1px 
-	#EEE;
+	text-shadow: 0 -1px #EEE;
 }
-
 .mochi_button[disabled]:active {
 }
+
+// button.black 
+.mochi_button.black {
+	.gradient_basic(@button_color_hlight_black, @button_color_top_black, @button_color_bottom_black);
+	color: #DDD;
+	text-shadow: black 0px 1px 1px;
+	border: 1px solid @button_border_color_black;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 1px;
+}
+.mochi_button.black:hover, .mochi_button_hover.black {
+	.gradient_basic(@button_hover_color_hlight_black, @button_hover_color_top_black, @button_hover_color_bottom_black);
+}
+.mochi_button.black:active, .mochi_button_active.black {
+  .box-shadow-inset(0, 0, 15px, rgba(0, 20, 30, 0.8));
+}
+
+// button.blue
+.mochi_button.blue {
+	.gradient_basic(@button_color_hlight_blue, @button_color_top_blue, @button_color_bottom_blue);
+	color: #C1E2FE;
+	text-shadow: #454578 0px 1px 1px;
+	border: 1px solid @button_border_color_blue;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 1px;
+}
+.mochi_button.blue:hover, .mochi_button_hover.blue {
+	.gradient_basic(@button_hover_color_hlight_blue, @button_hover_color_top_blue, @button_hover_color_bottom_blue);
+}
+.mochi_button.blue:active, .mochi_button_active.blue {
+  .box-shadow-inset(0, 0, 15px, rgba(20, 20, 60, 0.5));
+}
+
+// button.blue
+.mochi_button.red {
+	.gradient_basic(@button_color_hlight_red, @button_color_top_red, @button_color_bottom_red);
+	color: #FEC2C1;
+	text-shadow: #784845 0px 1px 1px;
+	border: 1px solid @button_border_color_red;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 1px;
+}
+.mochi_button.red:hover, .mochi_button_hover.red {
+	.gradient_basic(@button_hover_color_hlight_red, @button_hover_color_top_red, @button_hover_color_bottom_red);
+}
+.mochi_button.red:active, .mochi_button_active.red {
+  .box-shadow-inset(0, 0, 15px, rgba(60, 20, 20, 0.5));
+}
+
 
 // entry
 .mochi_entry, .mochi_textarea {
