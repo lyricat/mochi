@@ -20,6 +20,10 @@
 @widget_color_light_base: #D3D3D2;
 @widget_color_green:#A2C13E;
 @widget_color_light_green:#A5FF00;
+@widget_color_dark_green:#60911E;
+@widget_color_blue:#3099E7;
+@widget_color_light_blue:#93b2D3;
+@widget_color_dark_blue:#2457DA;
 @widget_color_red: #F00;
 
 // theme
@@ -201,7 +205,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 .mochi_button.round {
 	.border-radius(15px);
 }
-.mochi_button[disabled] {
+.mochi_button[disabled], .mochi_button_disabled {
 	.gradient_basic(@button_disabled_color_hlight, @button_disabled_color_top, @button_disabled_color_bottom);
 	color: #666;
 	cursor: default;
@@ -282,9 +286,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 .mochi_toggle {
 	-webkit-appearance: none;
 	.touchable();
-	.border-radius(15px);
+	.border-radius(2px);
 	background: #E4E4E4;
-	width: 50px;
+	width: 60px;
+	height: 30px;
 	margin: 0;
 	.box-shadow-inset(0, 0, 10px, rgba(0,0,0,0.2));
 	border: 1px solid @button_border_color;
@@ -292,52 +297,61 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 
 .mochi_toggle[checked] {
 	background: @widget_color_green;
+	.box-shadow-inset(0, 0, 10px, @widget_color_dark_green);
+	border: 1px @widget_color_dark_green solid;
 }
 
 .mochi_toggle:after, .mochi_toggle_button {	
 	.touchable();
-	.border-radius(12px);
-	height: 24px;
-	width: 24px;
-	.box-shadow(0, 1px, 2px, #666);
+	.button_like();
+	.border-radius(2px);
+	height: 25px;
+	width: 25px;
+	.box-shadow(0, 1px, 2px, rgba(0,0,0,0.3));
 	display: block;
 	content: " ";
-	.radial-gradient(8px 8px, 12px 12px, @button_color_hlight, @button_color_top, @widget_color_light_base);
-	margin-top: 2px;
-	margin-left: 2px;
+	margin-top: 1px;
+	margin-left: 1px;
 }
 
 .mochi_toggle[checked]:after, .mochi_toggle_button_checked {	
-	margin-left: 22px;
+	margin-left: 32px;
+	border: 1px @widget_color_dark_green solid;
 }
 
 .mochi_toggle:hover:after, .mochi_toggle_button_hover {	
-	.radial-gradient(8px 8px, 12px 12px, @button_hover_color_hlight, @button_hover_color_top, @button_color_bottom);
+	.mochi_button_hover();
+}
+
+.mochi_toggle[disabled]:after, .mochi_toggle_button_disabled {	
+	.mochi_button_disabled();
 }
 
 .mochi_toggle:before, .mochi_toggle_button_inner {	
-	.touchable();
-	.border-radius(8px);
-	height: 16px;
-	width: 16px;
 	display: block;
-	content: " ";
-	background: @widget_color_red;
-	float: left;
-	margin-top: 6px;
-	margin-left: 6px;
-	.box-shadow-inset(0, 0, 5px, rgba(0,0,0,0.5));
+	content: "OFF";
+	color: @widget_color_base;
+	float: right;
+	font-size: 11px;
+	text-align: right;
+	font-weight: bold;
+	margin: 0px 6px 0 0;
+	text-shadow: 0 1px 1px #fff;
 	.transition(all, 0.2s, ease-out);
 }
 
 .mochi_toggle[checked]:before, .mochi_toggle_button_inner_checked {	
-	float: right;
-	margin-right: 6px;
-	background: @widget_color_light_green;
+	content: "ON ";
+	float: left;
+	text-align: center;
+	margin: 0 0 0 6px;
+	text-shadow: 0 1px 1px @widget_color_light_green;
+	color: #333;
 }
 
 .mochi_toggle[disabled]:before, .mochi_toggle_button_disabled {	
-	background: @widget_color_light_base;
+	content: "   ";
+	color: @widget_color_base;
 }
 
 // group button
@@ -401,7 +415,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 
 // Combo
 .mochi_combo {
-	-webkit-appearance: none;
 	.mochi_button;
   min-width: 70px;
 }
@@ -426,36 +439,61 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endCo
 .mochi_checkbox, .mochi_radio {
 	-webkit-appearance: none;
 	.mochi_toggle_button;
+	.box-shadow(0,0,0,transparent);
 	margin: 2px;
 	display: inline-block;
 }
 .mochi_checkbox {
 	.border-radius(2px);
 }
+.mochi_radio {
+	.border-radius(14px);
+}
 .mochi_checkbox:hover, .mochi_radio:hover {
 	.mochi_toggle_button_hover;
 }
-.mochi_checkbox[disabled]:hover, .mochi_radio[disabled]:hover {
-	.mochi_toggle_button;
+
+.mochi_checkbox[disabled], .mochi_radio[disabled] {
+	background: #e4e4e4;
+	.box-shadow-inset(0, 0, 10px, rgba(0,0,0,0.2));
 }
-.mochi_checkbox:after, .mochi_radio:after {
-	.mochi_toggle_button_inner;
+
+.mochi_checkbox:after, .mochi_checkbox:before {
+	content: "";
+	display: block;
+	height: 4px;
+	width: 10px;
+	float: left;
+	margin: 12px 0 0 3px;
+	border-bottom-right-radius: 2px;
+	-webkit-transform: rotate(45deg);
 	background: @widget_color_light_base;
-	margin: 4px;
-	float: left;
+	.box-shadow(0, 1px, 1px, #fff);
 }
+
 .mochi_checkbox:after {
-	.border-radius(2px);
+	width: 16px;
+	margin-top: 10px;
+	margin-left: -7px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+	-webkit-transform: rotate(-55deg);
 }
-.mochi_checkbox:checked:after, .mochi_radio:checked:after {
-	.mochi_toggle_button_inner_checked;
-	margin: 4px;
-	float: left;
+.mochi_radio:after {
+	content: "";
+	display: block;
+	margin: 6px 0 0 6px;
+	width: 11px;
+	height: 11px;
+	.border-radius(6px);
+	background: @widget_color_light_base;
+	.box-shadow(0, 1px, 1px, #fff);
 }
-.mochi_checkbox[disabled]:after, .mochi_radio[disabled]:after,
-{
-	.mochi_toggle_button_disabled;
+.mochi_checkbox:checked:after, .mochi_radio:checked:after, .mochi_checkbox:checked:before, .mochi_radio:checked:before {
+	background: @widget_color_dark_green;
 }
+
 
 // mochi list
 @list_item_border_color: #ccc;
